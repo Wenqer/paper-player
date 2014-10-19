@@ -1,0 +1,54 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../paper-slider/paper-slider.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+
+<polymer-element name="paper-player" attributes="">
+  <template>
+    <link rel="stylesheet" href="paper-player.css">
+
+    <paper-input id="tracks-box" multiline label="Enter tracks here" value="{{ tracks | printJson }}">
+    </paper-input>
+
+    <h1>Now played: {{ current.title }}</h1>
+
+    <core-toolbar class="player-controls">
+      <paper-icon-button
+        icon="{{ played ? 'select-all' : 'arrow-forward' }}"
+        id="play-button"
+        on-click="{{ togglePlay }}"
+        >
+      </paper-icon-button>
+      <paper-slider
+        flex
+        value="{{ currentTrackDurration }}"
+        max="{{ trackDuration }}"
+        secondaryProgress="{{ downloaded }}"
+        on-click="{{ seekTo }}"
+        >
+      </paper-slider>
+      <time class="time-current">{{ currentTrackDurration | toTime }}</time>&nbsp;/&nbsp;
+      <time class="time-full">{{ trackDuration | toTime }}</time>
+    </core-toolbar>
+
+
+    <audio
+      id="playerContainer"
+      src="{{ current.src }}"
+      on-ended="{{ trackEnded }}"
+      on-durationchange="{{ durationChange }}"
+      on-timeupdate="{{ timeUpdate }}"
+      on-progress="{{ progressUpdate }}"
+      >
+    </audio>
+
+    <ul>
+      <template id="playlist" repeat="{{ track in tracks }}">
+        <li on-click="{{ setTrack }}" title="{{ track.src }}">{{ track.title }}</li>
+      </template>
+    </ul>
+  </template>
+  <script src="paper-player.js"></script>
+</polymer-element>
