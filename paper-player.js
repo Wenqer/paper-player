@@ -18,9 +18,6 @@
       this.current = this.tracks[0]
       this.played = !this.player.paused
     },
-    tracksChanged: function(val) {
-      console.log(val)
-    },
     setTrack: function(e, d, s) {
       this.current = s.templateInstance.model.track
       return this.play()
