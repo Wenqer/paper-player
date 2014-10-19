@@ -1,0 +1,30 @@
+{
+  "name": "paper-player",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components",
+    "audio",
+    "player"
+  ],
+  "main": "paper-player.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.4.0",
+    "core-elements": "Polymer/core-elements#^0.4.0",
+    "paper-elements": "Polymer/paper-elements#^0.4.0"
+  },
+  "devDependencies": {
+    "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"
+  },
+  "homepage": "https://github.com/wenqer/paper-player",
+  "_release": "dfaa901d3f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "dfaa901d3fe3e089e7168387d702548842fe8867"
+  },
+  "_source": "git://github.com/wenqer/paper-player.git",
+  "_target": "master",
+  "_originalSource": "wenqer/paper-player",
+  "_direct": true
+}
